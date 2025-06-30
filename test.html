@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>システム名どないしようかの</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <button class="openVijust">システム名未定</button>
+
+    <div class="operable-content">
+      <p class="sample1">
+        こんにちは！このサイトではウェブサイトの見づらいテキストの色をポップアップで操作する事のできるシステムを作成しています。なにか質問、ご意見があればx:@iDeiDiotまで
+      </p>
+      <p class="sample2">この文章を選択してみてください。</p>
+      <p class="sample3">
+        一つの文章だけでなく、様々な文章で色が変わるようになっています。
+      </p>
+    </div>
+
+    <div class="Vijust" id="Vijust">
+      <img class="closeVijust" id="closeVijust" src="x-lg.svg" alt="閉じる" />
+
+      <div class="popupContent">
+        <div id="popupScreen1" class="popupScreen">
+          <p><button id="selectTextButton">文章を選択</button></p>
+          <p><button id="deselectTextButton">選択を解除</button></p>
+        </div>
+
+        <div id="popupScreen2" class="popupScreen" style="display: none">
+          <img
+            class="backButton"
+            id="backToScreen1"
+            src="arrow-left-short.svg"
+            alt="戻る"
+          />
+          <div id="mainButtonsContainer" class="popupButtons">
+            <p><button id="addOutline">縁取り</button></p>
+            <p><button id="customColor">CUSTOM▶</button></p>
+          </div>
+          <div id="colorSliderContainer"></div>
+        </div>
+      </div>
+
+      <div class="imageGroup">
+        <button class="moveVijust move-top-left">
+          <img src="arrow-up-left-square.svg" alt="Top Left" />
+        </button>
+        <button class="moveVijust move-top-right">
+          <img src="arrow-up-right-square.svg" alt="Top Right" />
+        </button>
+        <button class="moveVijust move-bottom-left">
+          <img src="arrow-down-left-square.svg" alt="Bottom Left" />
+        </button>
+        <button class="moveVijust move-bottom-right">
+          <img src="arrow-down-right-square.svg" alt="Bottom Right" />
+        </button>
+      </div>
+    </div>
+
+    <script src="test.js"></script>
+  </body>
+</html>
