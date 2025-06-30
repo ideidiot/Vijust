@@ -1,0 +1,320 @@
+/* ==================== ポップアップ全体 ==================== */
+.Vijust {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 220px;
+  height: 320px;
+  background-color: #f7f7f7;
+  padding: 15px; /* 内側の余白を増やし、上部のボタンが重ならないように */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease-out;
+}
+
+/* ==================== ポップアップ内コンテンツ ==================== */
+.popupContent {
+  height: calc(100% - 70px); /* 閉じるボタンと移動ボタンのスペースを考慮 */
+  padding-top: 5px; /* 上部のスペースを調整 */
+  overflow-y: auto;
+}
+
+/* ==================== 画面共通スタイル ==================== */
+.popupScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* ==================== 画面1: テキスト選択/解除ボタン ==================== */
+#popupScreen1 p {
+  width: 80%;
+  margin: 10px 0;
+}
+
+#popupScreen1 button {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.15s ease-out;
+}
+
+#popupScreen1 button:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-1px);
+}
+
+#popupScreen1 button:active {
+  transform: translateY(0);
+}
+
+/* 「選択を解除」ボタンは少し控えめに */
+#deselectTextButton {
+  background-color: #f0f0f0 !important;
+  color: #666 !important;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  padding: 8px 0 !important;
+  margin-top: 15px !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#deselectTextButton:hover {
+  background-color: #e0e0e0 !important;
+  transform: none !important;
+}
+
+/* ==================== 画面2: 操作画面 ==================== */
+#popupScreen2 {
+  position: relative;
+  /* 上部に戻るボタンと閉じるボタンのスペースを確保 */
+  /* padding-top: 25px; は削除。popupContentのpaddingと合わせて自動調整される */
+}
+
+#mainButtonsContainer {
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+
+#mainButtonsContainer p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+#mainButtonsContainer button {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.15s ease-out;
+}
+
+#mainButtonsContainer button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+#mainButtonsContainer button:active {
+  transform: translateY(0);
+}
+
+/* ==================== 色調整スライダー ==================== */
+#colorSliderContainer {
+  margin-top: 15px;
+  padding: 0 5px;
+}
+
+.colorSlider div {
+  margin-bottom: 8px;
+}
+
+.textOnSlider {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+/* スライダー自体のデザイン (Webkit, Firefox対応) */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.9;
+  border-radius: 4px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+input[type="range"]:hover {
+  opacity: 1;
+}
+
+/* スライダーのつまみ (Webkit) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  cursor: grab;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: -6px;
+  transition: transform 0.1s ease-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* スライダーのつまみ (Firefox) */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  cursor: grab;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease-out;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* スライダー内の戻るボタン */
+.colorSlider .backToScreen2 {
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  margin-top: 20px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
+}
+
+.colorSlider .backToScreen2:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.colorSlider .backToScreen2:active {
+  transform: translateY(0);
+}
+
+/* ==================== 閉じるボタンと戻るボタン（矢印アイコン） ==================== */
+.closeVijust {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.closeVijust:hover {
+  opacity: 1;
+}
+
+/* 共通の戻るボタン（矢印アイコン） */
+#backToScreen1 {
+  /* IDセレクタで指定 */
+  display: block;
+  position: absolute;
+  top: 10px; /* ポップアップのpadding分内側に */
+  left: 10px; /* ポップアップのpadding分内側に */
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#backToScreen1:hover {
+  background-color: #d0d0d0;
+}
+
+/* ==================== ポップアップ移動ボタン ==================== */
+.imageGroup {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.moveVijust {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.moveVijust img {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.moveVijust img:hover {
+  transform: scale(1.05);
+}
+
+.moveVijust img:active {
+  transform: scale(1);
+}
+
+/* ==================== その他の基本スタイル ==================== */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+/* 選択された要素の強調表示（JavaScriptでクラスを付与） */
+.vijust-highlighted-element {
+  outline: 2px dashed #007bff;
+  outline-offset: 3px;
+  transition: outline 0.2s ease-in-out;
+}
+
+/* カーソル変更（JSでbodyにクラスを付与する想定） */
+body.select-mode {
+  cursor: pointer;
+}
+
+.sample1 {
+  color: #a3a3a3; /* 中間の灰色 */
+  background-color: #d1d1d1; /* 少し明るめの灰色 */
+}
+
+.sample2 {
+  color: #c4c4c4; /* 明るい灰色 */
+  background-color: #e6e6e6; /* さらに明るい灰色 */
+}
+
+.sample3 {
+  color: #e0e0e0; /* 非常に明るい灰色 */
+  background-color: #f0f0f0; /* それに近い、より明るい灰色 */
+}
