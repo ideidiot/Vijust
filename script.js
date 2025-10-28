@@ -188,7 +188,7 @@ customColorButton.addEventListener("click", () => {
   }
 });
 
-// 縁取りのトグル関数
+// 縁取りのトグル
 const toggleOutline = () => {
   if (!currentTargetElement) {
     console.warn("操作対象要素がありません。");
