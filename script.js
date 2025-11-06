@@ -1,3 +1,5 @@
+//まじで綺麗すぎて手のつけようがないんだけどどうしてくれるの
+
 const popupVijust = document.getElementById("Vijust");
 const closeVijust = document.getElementById("closeVijust");
 const openVijust = document.querySelector(".openVijust");
