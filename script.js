@@ -4,12 +4,12 @@ const popupVijust = document.getElementById("Vijust");
 const closeVijust = document.getElementById("closeVijust");
 const openVijust = document.querySelector(".openVijust");
 
-const popupScreen1 = document.getElementById("popupScreen1");
+const popupScreenSelectSentence = document.getElementById("popupScreen-SelectSentence");
 const selectTextButton = document.getElementById("selectTextButton");
 const deselectTextButton = document.getElementById("deselectTextButton");
 
-const popupScreen2 = document.getElementById("popupScreen2");
-const backToScreen1Button = document.getElementById("backToScreen1");
+const popupScreenCustom = document.getElementById("popupScreenCustom");
+const backToScreenSelectSentenceButton = document.getElementById("backToScreenSelectSentence");
 const addOutlineButton = document.getElementById("addOutline");
 const customColorButton = document.getElementById("customColor");
 const colorSliderContainer = document.getElementById("colorSliderContainer");
@@ -20,7 +20,7 @@ let documentClickListener = null;
 
 openVijust.addEventListener("click", () => {
   popupVijust.style.display = "block";
-  showScreen1(); 
+  showScreenSelectSentence(); 
 });
 
 closeVijust.addEventListener("click", () => {
@@ -29,38 +29,38 @@ closeVijust.addEventListener("click", () => {
   disableSelectMode();
 });
 
-function showScreen1() {
-  popupScreen1.style.display = "flex";
-  popupScreen2.style.display = "none";
-  resetScreen2Content();
+function showScreenSelectSentence() {
+  popupScreenSelectSentence.style.display = "flex";
+  popupScreenCustom.style.display = "none";
+  resetScreenCustomContent();
   currentTargetElement = null;
   updateDeselectButtonState();
-  backToScreen1Button.style.display = "none";
+  backToScreenSelectSentenceButton.style.display = "none";
 }
 
-function showScreen2() {
+function showScreenCustom() {
   if (currentTargetElement) {
-    popupScreen1.style.display = "none";
-    popupScreen2.style.display = "flex";
-    resetScreen2Content();
+    popupScreenSelectSentence.style.display = "none";
+    popupScreenCustom.style.display = "flex";
+    resetScreenCustomContent();
     updateDeselectButtonState();
-    backToScreen1Button.style.display = "block";
+    backToScreenSelectSentenceButton.style.display = "block";
   } else {
     alert("操作対象の文章が選択されていません。");
-    showScreen1();
+    showScreenSelectSentence();
   }
 }
 
-function resetScreen2Content() {
+function resetScreenCustomContent() {
   mainButtonsContainer.style.display = "block";
   colorSliderContainer.innerHTML = "";
   addOutlineButton.textContent = "縁取り";
-  backToScreen1Button.style.display = "block";
+  backToScreenSelectSentenceButton.style.display = "block";
 }
 
 function resetPopupState() {
   currentTargetElement = null;
-  showScreen1();
+  showScreenSelectSentence();
   disableSelectMode();
 }
 
@@ -101,7 +101,7 @@ function enableSelectMode() {
       popupVijust.style.display = "block";
     }
 
-    showScreen2();
+    showScreenCustom();
   };
   document.addEventListener("click", documentClickListener);
   console.log("選択モードを有効化しました。");
@@ -127,8 +127,8 @@ deselectTextButton.addEventListener("click", () => {
   alert("選択が解除されました。");
 });
 
-backToScreen1Button.addEventListener("click", () => {
-  showScreen1(); //　currentTargetElementは保持
+backToScreenSelectSentenceButton.addEventListener("click", () => {
+  showScreenSelectSentence(); //　currentTargetElementは保持
 });
 
 customColorButton.addEventListener("click", () => {
@@ -138,7 +138,7 @@ customColorButton.addEventListener("click", () => {
   }
 
   mainButtonsContainer.style.display = "none"; 
-  backToScreen1Button.style.display = "none";
+  backToScreenSelectSentenceButton.style.display = "none";
   
   if (!colorSliderContainer.querySelector(".colorSlider")) {
     const colorSliderHTML = `
@@ -155,7 +155,7 @@ customColorButton.addEventListener("click", () => {
                     <label class="textOnSlider" for="blueRange">Blue</label>
                     <input type="range" id="blueRange" min="0" max="255" value="200" />
                 </div>
-                <button class="backToScreen2">◀戻る</button> </div>
+                <button class="backToScreenCustom">◀戻る</button> </div>
         `;
     colorSliderContainer.insertAdjacentHTML("beforeend", colorSliderHTML);
 
@@ -182,10 +182,10 @@ customColorButton.addEventListener("click", () => {
     blueRange.addEventListener("input", updateColor);
 
     colorSliderContainer
-      .querySelector(".backToScreen2")
+      .querySelector(".backToScreenCustom")
       .addEventListener("click", () => {
-        resetScreen2Content();
-        backToScreen1Button.style.display = "block";
+        resetScreenCustomContent();
+        backToScreenSelectSentenceButton.style.display = "block";
       });
   }
 });

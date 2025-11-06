@@ -34,12 +34,12 @@
 }
 
 /* ==================== 画面1: テキスト選択/解除ボタン ==================== */
-#popupScreen1 p {
+#popupScreenSelectSentence p {
   width: 80%;
   margin: 10px 0;
 }
 
-#popupScreen1 button {
+#popupScreenSelectSentence button {
   background-color: #e0e0e0;
   color: #333;
   border: none;
@@ -51,12 +51,12 @@
   transition: background-color 0.2s ease-in-out, transform 0.15s ease-out;
 }
 
-#popupScreen1 button:hover {
+#popupScreenSelectSentence button:hover {
   background-color: #d0d0d0;
   transform: translateY(-1px);
 }
 
-#popupScreen1 button:active {
+#popupScreenSelectSentence button:active {
   transform: translateY(0);
 }
 
@@ -77,7 +77,7 @@
 }
 
 /* ==================== 画面2: 操作画面 ==================== */
-#popupScreen2 {
+#popupScreenCustom {
   position: relative;
   /* 上部に戻るボタンと閉じるボタンのスペースを確保 */
   /* padding-top: 25px; は削除。popupContentのpaddingと合わせて自動調整される */
@@ -185,7 +185,7 @@ input[type="range"]::-moz-range-thumb:active {
 }
 
 /* スライダー内の戻るボタン */
-.colorSlider .backToScreen2 {
+.colorSlider .backToScreenCustom {
   background-color: #f0f0f0;
   color: #666;
   border: 1px solid #ccc;
@@ -201,12 +201,12 @@ input[type="range"]::-moz-range-thumb:active {
   transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
 }
 
-.colorSlider .backToScreen2:hover {
+.colorSlider .backToScreenCustom:hover {
   background-color: #e0e0e0;
   transform: translateY(-1px);
 }
 
-.colorSlider .backToScreen2:active {
+.colorSlider .backToScreenCustom:active {
   transform: translateY(0);
 }
 
@@ -227,7 +227,7 @@ input[type="range"]::-moz-range-thumb:active {
 }
 
 /* 共通の戻るボタン（矢印アイコン） */
-#backToScreen1 {
+#backToScreenSelectSentence {
   /* IDセレクタで指定 */
   display: block;
   position: absolute;
@@ -245,7 +245,7 @@ input[type="range"]::-moz-range-thumb:active {
   transition: background-color 0.2s ease-in-out;
 }
 
-#backToScreen1:hover {
+#backToScreenSelectSentence:hover {
   background-color: #d0d0d0;
 }
 
@@ -304,17 +304,17 @@ body.select-mode {
   cursor: pointer;
 }
 
-.sample1 {
+.sample-midGrey {
   color: #a3a3a3; /* 中間の灰色 */
   background-color: #d1d1d1; /* 少し明るめの灰色 */
 }
 
-.sample2 {
+.sample-brightGrey {
   color: #c4c4c4; /* 明るい灰色 */
   background-color: #e6e6e6; /* さらに明るい灰色 */
 }
 
-.sample3 {
+.sample-brightestGrey {
   color: #e0e0e0; /* 非常に明るい灰色 */
   background-color: #f0f0f0; /* それに近い、より明るい灰色 */
 }
