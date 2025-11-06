@@ -4,7 +4,7 @@ const popupVijust = document.getElementById("Vijust");
 const closeVijust = document.getElementById("closeVijust");
 const openVijust = document.querySelector(".openVijust");
 
-const popupScreenSelectSentence = document.getElementById("popupScreen-SelectSentence");
+const popupScreenSelectSentence = document.getElementById("popupScreenSelectSentence");
 const selectTextButton = document.getElementById("selectTextButton");
 const deselectTextButton = document.getElementById("deselectTextButton");
 
